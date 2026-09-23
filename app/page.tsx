@@ -505,20 +505,22 @@ export default function SGTrackerPage() {
                 <h1 className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 bg-clip-text text-transparent">
                   SGTracker
                 </h1>
-                <span className="text-[10px] uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-200">
-                  Pantry
+                <span className="text-[10px] uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-sm">
+                  v1.0 Live
                 </span>
               </div>
               <p className="text-xs text-slate-500 flex items-center gap-1.5 mt-0.5">
+                <span className="font-semibold text-slate-700">Smart Grocery & Pantry Tracker</span>
+                <span className="text-slate-300">•</span>
                 {syncSource === 'google_sheets' ? (
                   <span className="inline-flex items-center gap-1 text-emerald-600 font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                    Google Sheets Sync
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Google Sheets Cloud Sync
                   </span>
                 ) : (
                   <span className="inline-flex items-center gap-1 text-amber-600 font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-                    Local / Demo Mode
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    Local Store
                   </span>
                 )}
               </p>

@@ -25,14 +25,28 @@ let demoStore: InventoryItem[] = [
 ];
 
 function getGoogleSheetsClient() {
-  const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
-  const privateKey = process.env.GOOGLE_PRIVATE_KEY;
-  const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+  const clientEmail = process.env.GOOGLE_CLIENT_EMAIL?.trim();
+  let privateKey = process.env.GOOGLE_PRIVATE_KEY?.trim();
+  const spreadsheetId = process.env.GOOGLE_SHEET_ID?.trim();
 
   if (!clientEmail || !privateKey || !spreadsheetId) {
+    console.warn('[SGTracker API] Missing required env vars:', {
+      hasEmail: !!clientEmail,
+      hasKey: !!privateKey,
+      hasSheetId: !!spreadsheetId,
+    });
     return null;
   }
 
+  // Strip leading and trailing double or single quotes if present (common when pasting into Vercel UI)
+  if (
+    (privateKey.startsWith('"') && privateKey.endsWith('"')) ||
+    (privateKey.startsWith("'") && privateKey.endsWith("'"))
+  ) {
+    privateKey = privateKey.slice(1, -1).trim();
+  }
+
+  // Replace literal '\n' characters with actual linebreaks
   const formattedKey = privateKey.replace(/\\n/g, '\n');
 
   const auth = new google.auth.GoogleAuth({
