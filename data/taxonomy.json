@@ -1,0 +1,7 @@
+[
+  { "id": "cat_1", "name": "Produce", "sub": ["Fresh Fruit", "Fresh Vegetables", "Herbs"] },
+  { "id": "cat_2", "name": "Dairy & Eggs", "sub": ["Milk", "Cheese", "Eggs", "Yogurt"] },
+  { "id": "cat_3", "name": "Meat & Seafood", "sub": ["Poultry", "Beef", "Pork", "Fish"] },
+  { "id": "cat_4", "name": "Pantry Staples", "sub": ["Pasta & Grains", "Canned Goods", "Spices", "Oils & Sauces"] },
+  { "id": "cat_5", "name": "Household", "sub": ["Cleaning Supplies", "Paper Goods", "Trash Bags"] }
+]
